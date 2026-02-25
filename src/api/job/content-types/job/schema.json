@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "jobs",
+  "info": {
+    "singularName": "job",
+    "pluralName": "jobs",
+    "displayName": "Job"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "details": {
+      "type": "blocks"
+    },
+    "closingDate": {
+      "type": "date"
+    },
+    "location": {
+      "type": "string"
+    },
+    "jobType": {
+      "type": "enumeration",
+      "enum": [
+        "Permanent",
+        "Contract",
+        "Seasonal",
+        "Temporary"
+      ]
+    },
+    "showToCandidate": {
+      "type": "enumeration",
+      "enum": [
+        "Only Job Title",
+        "Complete Job",
+        "Job and Company"
+      ]
+    },
+    "vacancies": {
+      "type": "string"
+    },
+    "candidates": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::candidate.candidate",
+      "mappedBy": "jobs"
+    }
+  }
+}

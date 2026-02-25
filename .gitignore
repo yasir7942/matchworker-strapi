@@ -1,7 +1,6 @@
 ############################
-# OS X
+# macOS
 ############################
-
 .DS_Store
 .AppleDouble
 .LSOverride
@@ -10,18 +9,14 @@ Icon
 .Trashes
 ._*
 
-
 ############################
 # Linux
 ############################
-
 *~
-
 
 ############################
 # Windows
 ############################
-
 Thumbs.db
 ehthumbs.db
 Desktop.ini
@@ -31,11 +26,101 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 
+############################
+# Logs / runtime
+############################
+*.log
+logs
+pids
+*.pid
+*.pid.lock
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
 ############################
-# Packages
+# Temp / cache
 ############################
+.tmp
+tmp
+.temp
+.cache
+.eslintcache
+*.tsbuildinfo
 
+############################
+# Databases / dumps
+############################
+*.sql
+*.sqlite
+*.sqlite3
+
+############################
+# Node
+############################
+node_modules/
+.npm/
+.node_history
+lib-cov
+lcov.info
+coverage/
+
+############################
+# Package managers
+############################
+.yarn/*
+!.yarn/cache
+!.yarn/unplugged
+!.yarn/patches
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+pnpm-lock.yaml
+.pnpm-store/
+
+############################
+# IDEs
+############################
+.idea/
+.vscode/
+nbproject/
+
+############################
+# SSL / certs (usually private)
+############################
+ssl/
+
+############################
+# Strapi (build + generated)
+############################
+.env
+.env.*
+!.env.example
+
+build/
+dist/
+exports/
+.out/
+
+# Strapi internal / local
+.strapi/
+.strapi-updater.json
+.strapi-cloud.json
+
+# Uploads (don’t commit media)
+public/uploads/*
+!public/uploads/.gitkeep
+
+# If using local sqlite db file in project (optional)
+# .tmp/data.db
+# .tmp/*.db
+
+############################
+# Misc binaries / archives (optional)
+############################
 *.7z
 *.csv
 *.dat
@@ -46,7 +131,6 @@ $RECYCLE.BIN/
 *.rar
 *.tar
 *.zip
-*.com
 *.class
 *.dll
 *.exe
@@ -58,74 +142,3 @@ $RECYCLE.BIN/
 *.swn
 *.swm
 *.out
-*.pid
-
-
-############################
-# Logs and databases
-############################
-
-.tmp
-*.log
-*.sql
-*.sqlite
-*.sqlite3
-
-
-############################
-# Misc.
-############################
-
-*#
-ssl
-.idea
-nbproject
-public/uploads/*
-!public/uploads/.gitkeep
-.tsbuildinfo
-.eslintcache
-
-############################
-# Node.js
-############################
-
-lib-cov
-lcov.info
-pids
-logs
-results
-node_modules
-.node_history
-
-############################
-# Package managers
-############################
-
-.yarn/*
-!.yarn/cache
-!.yarn/unplugged
-!.yarn/patches
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
-.pnp.*
-yarn-error.log
-
-############################
-# Tests
-############################
-
-coverage
-
-############################
-# Strapi
-############################
-
-.env
-license.txt
-exports
-.strapi
-dist
-build
-.strapi-updater.json
-.strapi-cloud.json
