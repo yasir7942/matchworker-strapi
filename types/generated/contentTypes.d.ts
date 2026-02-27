@@ -445,6 +445,7 @@ export interface ApiCandidateCandidate extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    currentCompany: Schema.Attribute.String;
     currentJobExperiece: Schema.Attribute.Decimal;
     currentlyEmployed: Schema.Attribute.Boolean;
     CV: Schema.Attribute.Media<'files' | 'images'>;
@@ -485,7 +486,6 @@ export interface ApiCandidateCandidate extends Struct.CollectionTypeSchema {
     referenceNumber: Schema.Attribute.String & Schema.Attribute.Unique;
     seasonalStatusList: Schema.Attribute.String;
     shortSummary: Schema.Attribute.Text;
-    slug: Schema.Attribute.UID<'fullName'>;
     Source: Schema.Attribute.String;
     type: Schema.Attribute.String & Schema.Attribute.DefaultTo<'candidate'>;
     updatedAt: Schema.Attribute.DateTime;

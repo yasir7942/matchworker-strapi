@@ -14,10 +14,6 @@
     "fullName": {
       "type": "string"
     },
-    "slug": {
-      "type": "uid",
-      "targetField": "fullName"
-    },
     "firstName": {
       "type": "string"
     },
@@ -153,6 +149,9 @@
       "type": "string"
     },
     "isProfileVerifiedList": {
+      "type": "string"
+    },
+    "currentCompany": {
       "type": "string"
     }
   }
