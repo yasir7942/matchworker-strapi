@@ -23,31 +23,41 @@
     "location": {
       "type": "string"
     },
-    "jobType": {
-      "type": "enumeration",
-      "enum": [
-        "Permanent",
-        "Contract",
-        "Seasonal",
-        "Temporary"
-      ]
-    },
-    "showToCandidate": {
-      "type": "enumeration",
-      "enum": [
-        "Only Job Title",
-        "Complete Job",
-        "Job and Company"
-      ]
-    },
-    "vacancies": {
-      "type": "string"
-    },
     "candidates": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::candidate.candidate",
       "mappedBy": "jobs"
+    },
+    "statusList": {
+      "type": "string"
+    },
+    "industeryList": {
+      "type": "string"
+    },
+    "shortDescription": {
+      "type": "text"
+    },
+    "jobTypeList": {
+      "type": "string"
+    },
+    "showToCandidateList": {
+      "type": "string"
+    },
+    "vacanciesNo": {
+      "type": "integer"
+    },
+    "client": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::client.client",
+      "inversedBy": "jobs"
+    },
+    "experience": {
+      "type": "integer"
+    },
+    "referenceNo": {
+      "type": "string"
     }
   }
 }

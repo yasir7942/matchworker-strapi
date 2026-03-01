@@ -7,9 +7,9 @@ export interface ContactContacts extends Struct.ComponentSchema {
     icon: 'bulletList';
   };
   attributes: {
-    desigination: Schema.Attribute.String;
+    designation: Schema.Attribute.String;
     mobile: Schema.Attribute.String;
-    Name: Schema.Attribute.String;
+    name: Schema.Attribute.String;
     remarks: Schema.Attribute.String;
   };
 }

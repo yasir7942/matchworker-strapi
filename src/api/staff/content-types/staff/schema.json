@@ -20,6 +20,13 @@
     "designation": {
       "type": "string"
     },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
     "users_permissions_user": {
       "type": "relation",
       "relation": "oneToOne",
@@ -29,13 +36,6 @@
       "type": "string",
       "default": "staff",
       "required": false
-    },
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images"
-      ]
     }
   }
 }

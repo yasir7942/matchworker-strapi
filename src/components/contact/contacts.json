@@ -6,10 +6,10 @@
   },
   "options": {},
   "attributes": {
-    "Name": {
+    "name": {
       "type": "string"
     },
-    "desigination": {
+    "designation": {
       "type": "string"
     },
     "mobile": {
