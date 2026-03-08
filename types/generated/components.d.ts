@@ -44,12 +44,30 @@ export interface DocumentsFiles extends Struct.ComponentSchema {
   };
 }
 
+export interface JobAssignCandidates extends Struct.ComponentSchema {
+  collectionName: 'components_job_assign_candidates';
+  info: {
+    displayName: 'assignCandidates';
+    icon: 'user';
+  };
+  attributes: {
+    candidate: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::candidate.candidate'
+    >;
+    candidateProcessList: Schema.Attribute.String;
+    offerLetter: Schema.Attribute.Media<'images' | 'files'>;
+    requestedInterviewDate: Schema.Attribute.Date;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'contact.contacts': ContactContacts;
       'contact.shared': ContactShared;
       'documents.files': DocumentsFiles;
+      'job.assign-candidates': JobAssignCandidates;
     }
   }
 }

@@ -153,6 +153,12 @@
     },
     "currentCompany": {
       "type": "string"
+    },
+    "workingVideoIframe": {
+      "type": "text"
+    },
+    "miScreeningVideoIframe": {
+      "type": "text"
     }
   }
 }

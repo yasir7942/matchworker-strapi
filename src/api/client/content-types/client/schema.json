@@ -34,11 +34,11 @@
       "component": "contact.contacts",
       "repeatable": true
     },
-    "jobs": {
+    "jobs_suggested": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::job.job",
-      "mappedBy": "client"
+      "inversedBy": "suggested_clients"
     },
     "users_permissions_user": {
       "type": "relation",

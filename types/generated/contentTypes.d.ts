@@ -473,6 +473,7 @@ export interface ApiCandidateCandidate extends Struct.CollectionTypeSchema {
     miScreeningVideo: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
+    miScreeningVideoIframe: Schema.Attribute.Text;
     mobile: Schema.Attribute.String;
     nationalityList: Schema.Attribute.String;
     numberOfExperience: Schema.Attribute.Decimal;
@@ -498,6 +499,7 @@ export interface ApiCandidateCandidate extends Struct.CollectionTypeSchema {
     workingVideo: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
+    workingVideoIframe: Schema.Attribute.Text;
   };
 }
 
@@ -522,7 +524,7 @@ export interface ApiClientClient extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     industriesList: Schema.Attribute.String;
-    jobs: Schema.Attribute.Relation<'oneToMany', 'api::job.job'>;
+    jobs_suggested: Schema.Attribute.Relation<'manyToMany', 'api::job.job'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -591,11 +593,14 @@ export interface ApiJobJob extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    assignCandidatesToJob: Schema.Attribute.Component<
+      'job.assign-candidates',
+      true
+    >;
     candidates: Schema.Attribute.Relation<
       'manyToMany',
       'api::candidate.candidate'
     >;
-    client: Schema.Attribute.Relation<'manyToOne', 'api::client.client'>;
     closingDate: Schema.Attribute.Date;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -613,6 +618,10 @@ export interface ApiJobJob extends Struct.CollectionTypeSchema {
     shortDescription: Schema.Attribute.Text;
     showToCandidateList: Schema.Attribute.String;
     statusList: Schema.Attribute.String;
+    suggested_clients: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::client.client'
+    >;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

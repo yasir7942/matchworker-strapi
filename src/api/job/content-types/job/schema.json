@@ -47,17 +47,22 @@
     "vacanciesNo": {
       "type": "integer"
     },
-    "client": {
+    "suggested_clients": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::client.client",
-      "inversedBy": "jobs"
+      "mappedBy": "jobs_suggested"
     },
     "experience": {
       "type": "integer"
     },
     "referenceNo": {
       "type": "string"
+    },
+    "assignCandidatesToJob": {
+      "type": "component",
+      "component": "job.assign-candidates",
+      "repeatable": true
     }
   }
 }
