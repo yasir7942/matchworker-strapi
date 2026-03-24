@@ -57,7 +57,6 @@ export interface JobAssignCandidates extends Struct.ComponentSchema {
     >;
     candidateProcessList: Schema.Attribute.String;
     offerLetter: Schema.Attribute.Media<'images' | 'files'>;
-    requestedInterviewDate: Schema.Attribute.Date;
   };
 }
 

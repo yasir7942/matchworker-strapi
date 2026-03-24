@@ -9,9 +9,6 @@
     "candidateProcessList": {
       "type": "string"
     },
-    "requestedInterviewDate": {
-      "type": "date"
-    },
     "candidate": {
       "type": "relation",
       "relation": "oneToOne",

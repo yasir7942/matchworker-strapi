@@ -47,11 +47,11 @@
     "vacanciesNo": {
       "type": "integer"
     },
-    "suggested_clients": {
+    "client": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "manyToOne",
       "target": "api::client.client",
-      "mappedBy": "jobs_suggested"
+      "inversedBy": "jobs"
     },
     "experience": {
       "type": "integer"

@@ -461,7 +461,8 @@ export interface ApiCandidateCandidate extends Struct.CollectionTypeSchema {
       'api::job-role.job-role'
     >;
     jobs: Schema.Attribute.Relation<'manyToMany', 'api::job.job'>;
-    jobStatus: Schema.Attribute.String;
+    jobStatus: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'Available'>;
     lastName: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -470,10 +471,7 @@ export interface ApiCandidateCandidate extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     maritalStatusList: Schema.Attribute.String;
-    miScreeningVideo: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    miScreeningVideoIframe: Schema.Attribute.Text;
+    miScreeningVideoLink: Schema.Attribute.String;
     mobile: Schema.Attribute.String;
     nationalityList: Schema.Attribute.String;
     numberOfExperience: Schema.Attribute.Decimal;
@@ -496,10 +494,7 @@ export interface ApiCandidateCandidate extends Struct.CollectionTypeSchema {
       'oneToOne',
       'plugin::users-permissions.user'
     >;
-    workingVideo: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    workingVideoIframe: Schema.Attribute.Text;
+    workingVideoLink: Schema.Attribute.String;
   };
 }
 
@@ -524,7 +519,7 @@ export interface ApiClientClient extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     industriesList: Schema.Attribute.String;
-    jobs_suggested: Schema.Attribute.Relation<'manyToMany', 'api::job.job'>;
+    jobs: Schema.Attribute.Relation<'oneToMany', 'api::job.job'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -601,6 +596,7 @@ export interface ApiJobJob extends Struct.CollectionTypeSchema {
       'manyToMany',
       'api::candidate.candidate'
     >;
+    client: Schema.Attribute.Relation<'manyToOne', 'api::client.client'>;
     closingDate: Schema.Attribute.Date;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -618,10 +614,6 @@ export interface ApiJobJob extends Struct.CollectionTypeSchema {
     shortDescription: Schema.Attribute.Text;
     showToCandidateList: Schema.Attribute.String;
     statusList: Schema.Attribute.String;
-    suggested_clients: Schema.Attribute.Relation<
-      'manyToMany',
-      'api::client.client'
-    >;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

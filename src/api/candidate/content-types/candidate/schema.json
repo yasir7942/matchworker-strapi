@@ -69,7 +69,8 @@
       "target": "plugin::users-permissions.user"
     },
     "jobStatus": {
-      "type": "string"
+      "type": "string",
+      "default": "Available"
     },
     "jobs": {
       "type": "relation",
@@ -88,16 +89,6 @@
     "numberOfExperience": {
       "type": "decimal"
     },
-    "workingVideo": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "currentJobExperiece": {
       "type": "decimal"
     },
@@ -112,16 +103,6 @@
     },
     "currentlyEmployed": {
       "type": "boolean"
-    },
-    "miScreeningVideo": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
     },
     "Source": {
       "type": "string"
@@ -154,11 +135,11 @@
     "currentCompany": {
       "type": "string"
     },
-    "workingVideoIframe": {
-      "type": "text"
+    "workingVideoLink": {
+      "type": "string"
     },
-    "miScreeningVideoIframe": {
-      "type": "text"
+    "miScreeningVideoLink": {
+      "type": "string"
     }
   }
 }
