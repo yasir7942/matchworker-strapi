@@ -520,6 +520,9 @@ export interface ApiClientClient extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     industriesList: Schema.Attribute.String;
     jobs: Schema.Attribute.Relation<'oneToMany', 'api::job.job'>;
+    leadStatus: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Lead'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

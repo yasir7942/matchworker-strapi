@@ -73,6 +73,11 @@
     "type": {
       "type": "string",
       "default": "client"
+    },
+    "leadStatus": {
+      "type": "string",
+      "default": "Lead",
+      "required": true
     }
   }
 }
