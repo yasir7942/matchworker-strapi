@@ -57,6 +57,10 @@ export interface JobAssignCandidates extends Struct.ComponentSchema {
     >;
     candidateProcessList: Schema.Attribute.String;
     offerLetter: Schema.Attribute.Media<'images' | 'files'>;
+    pipline_chats: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pipline-chat.pipline-chat'
+    >;
   };
 }
 

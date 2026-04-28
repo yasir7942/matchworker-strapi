@@ -532,6 +532,10 @@ export interface ApiClientClient extends Struct.CollectionTypeSchema {
     logo: Schema.Attribute.Media<'images'>;
     ownerName: Schema.Attribute.String;
     phone: Schema.Attribute.Text;
+    pipline_chats: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pipline-chat.pipline-chat'
+    >;
     privateNote: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
     shortDescription: Schema.Attribute.Text;
@@ -625,6 +629,41 @@ export interface ApiJobJob extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPiplineChatPiplineChat extends Struct.CollectionTypeSchema {
+  collectionName: 'pipline_chats';
+  info: {
+    displayName: 'Pipline Chat';
+    pluralName: 'pipline-chats';
+    singularName: 'pipline-chat';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    client: Schema.Attribute.Relation<'manyToOne', 'api::client.client'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    history: Schema.Attribute.Text;
+    isSystemGenerated: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pipline-chat.pipline-chat'
+    > &
+      Schema.Attribute.Private;
+    message: Schema.Attribute.Text;
+    personName: Schema.Attribute.String;
+    private: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    publishedAt: Schema.Attribute.DateTime;
+    staff: Schema.Attribute.Relation<'manyToOne', 'api::staff.staff'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiStaffStaff extends Struct.CollectionTypeSchema {
   collectionName: 'staffs';
   info: {
@@ -646,6 +685,10 @@ export interface ApiStaffStaff extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::staff.staff'> &
       Schema.Attribute.Private;
     mobile: Schema.Attribute.String;
+    pipline_chats: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pipline-chat.pipline-chat'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     type: Schema.Attribute.String & Schema.Attribute.DefaultTo<'staff'>;
     updatedAt: Schema.Attribute.DateTime;
@@ -1173,6 +1216,7 @@ declare module '@strapi/strapi' {
       'api::client.client': ApiClientClient;
       'api::job-role.job-role': ApiJobRoleJobRole;
       'api::job.job': ApiJobJob;
+      'api::pipline-chat.pipline-chat': ApiPiplineChatPiplineChat;
       'api::staff.staff': ApiStaffStaff;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

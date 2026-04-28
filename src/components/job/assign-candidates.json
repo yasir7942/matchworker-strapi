@@ -21,6 +21,11 @@
         "images",
         "files"
       ]
+    },
+    "pipline_chats": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pipline-chat.pipline-chat"
     }
   },
   "config": {}

@@ -36,6 +36,12 @@
       "type": "string",
       "default": "staff",
       "required": false
+    },
+    "pipline_chats": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pipline-chat.pipline-chat",
+      "mappedBy": "staff"
     }
   }
 }
