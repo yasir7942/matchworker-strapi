@@ -39,6 +39,12 @@
     },
     "personName": {
       "type": "string"
+    },
+    "jobDocumentId": {
+      "type": "string"
+    },
+    "candidateDocumentId": {
+      "type": "string"
     }
   }
 }

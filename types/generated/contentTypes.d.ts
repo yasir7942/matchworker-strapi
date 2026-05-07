@@ -640,6 +640,7 @@ export interface ApiPiplineChatPiplineChat extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    candidateDocumentId: Schema.Attribute.String;
     client: Schema.Attribute.Relation<'manyToOne', 'api::client.client'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -647,6 +648,7 @@ export interface ApiPiplineChatPiplineChat extends Struct.CollectionTypeSchema {
     history: Schema.Attribute.Text;
     isSystemGenerated: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
+    jobDocumentId: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
