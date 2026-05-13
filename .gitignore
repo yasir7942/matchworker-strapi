@@ -66,6 +66,7 @@ node_modules/
 lib-cov
 lcov.info
 coverage/
+package-lock.json
 
 ############################
 # Package managers
